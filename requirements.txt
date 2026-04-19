@@ -1,0 +1,9 @@
+streamlit
+pandas
+fastapi
+uvicorn
+python-dotenv
+scikit-learn
+sentence-transformers
+groq
+python-dotenv

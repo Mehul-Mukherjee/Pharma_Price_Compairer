@@ -1,0 +1,41 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.env.local
+
+# HuggingFace / model cache
+.cache/
+huggingface/
+transformers_cache/
+
+# FAISS / embeddings (VERY IMPORTANT - large files)
+data/faiss.index
+data/meta.pkl
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Streamlit / runtime
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Optional: large datasets (if not needed in repo)
+data/*.csv
+data/*.parquet
+
+.env 
