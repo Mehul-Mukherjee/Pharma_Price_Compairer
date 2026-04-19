@@ -6,13 +6,26 @@ An AI-powered **medicine price comparison system** that helps users find the che
 
 ## 🚀 Features
 
-- 🔍 Smart medicine search (e.g., *“Dolo 650 vs Calpol 650”*)
+- 🔍 Smart medicine search (e.g., “Dolo 650 vs Calpol 650”)
 - 📊 Price comparison across brands
 - 🧠 Semantic search using SentenceTransformers + FAISS
 - 🤖 AI-generated explanations using Groq LLM
-- ⚡ Fast API backend (FastAPI)
-- 🖥️ Interactive UI (Streamlit dashboard)
-- 📦 Large-scale dataset support (300K+ records)
+- ⚡ FastAPI backend
+- 🖥️ Streamlit interactive dashboard
+- 📦 Scales to 300K+ medicine records
+
+---
+
+## 📊 Dataset
+
+This project uses the following dataset:
+
+📦 **India Medicines and Drug Info Dataset**  
+🔗 https://www.kaggle.com/datasets/apkaayush/india-medicines-and-drug-info-dataset
+
+📜 License: **CC BY-NC-SA 4.0 (Creative Commons Attribution Non-Commercial ShareAlike 4.0)**
+
+> ⚠️ This dataset is used strictly for educational and non-commercial purposes in accordance with its license.
 
 ---
 
@@ -23,11 +36,11 @@ User (Streamlit UI)
 ↓
 FastAPI Backend (/chat endpoint)
 ↓
-Vector Search (FAISS + SentenceTransformer)
+FAISS Vector Search (SentenceTransformers embeddings)
 ↓
-Relevant medicine data retrieval
+Relevant medicine records retrieval
 ↓
-Groq LLM (analysis + explanation)
+Groq LLM reasoning layer
 ↓
 Final structured response
 
@@ -39,129 +52,107 @@ Final structured response
 - Python 3.11+
 - FastAPI
 - Streamlit
-- FAISS (Facebook AI Similarity Search)
-- SentenceTransformers (MiniLM model)
-- Groq API (LLM inference)
+- FAISS
+- SentenceTransformers (MiniLM)
+- Groq API
 - Pandas / NumPy
 
 ---
 
 ## 📦 Installation
 
-### 1. Clone the repository
-
+### 1. Clone repository
 ```bash
-git clone https://github.com/your-username/pharma-price-comparator.git
+git clone git@github.com:Mehul-Mukherjee/Pharma_Price_Compairer.git
 cd Pharma_Price_Compairer
-2. Create virtual environment (recommended)
+2. Create virtual environment
 python -m venv venv
 source venv/bin/activate   # Mac/Linux
-# venv\Scripts\activate    # Windows
 3. Install dependencies
 pip install -r requirements.txt
 4. Set environment variables
 
-Create a .env file (DO NOT PUSH THIS TO GITHUB):
+Create .env file (DO NOT COMMIT):
 
-GROQ_API_KEY=your_groq_api_key_here
+GROQ_API_KEY=your_key_here
 
-Or export directly:
+Or export:
 
-export GROQ_API_KEY="your_key"
+export GROQ_API_KEY="your_key_here"
 🚀 Run the Project
-Step 1 — Start Backend (FastAPI)
+Start Backend (FastAPI)
 PYTHONPATH=. uvicorn app.main:app --reload --port 8000
 
-Backend runs at:
+Backend:
 
 http://127.0.0.1:8000
-Step 2 — Start Frontend (Streamlit)
+Start Frontend (Streamlit)
 PYTHONPATH=. streamlit run dashboard/app.py --server.port 8502
 
-Frontend runs at:
+Frontend:
 
 http://localhost:8502
 🧪 Example Queries
-
-Try:
-
 dolo 650
 dolo 650 vs calpol 650
-paracetamol 650 cheapest
+paracetamol cheapest alternative
 ibuprofen vs paracetamol
-⚙️ Key Improvements Made
-
-This project went through several critical fixes:
-
-🧠 Vector Store Fixes
-Fixed FAISS index mismatch issues
-Resolved Pandas indexing errors (KeyError)
+⚙️ Key Fixes Implemented
+🧠 Vector Search Fixes
+Fixed FAISS index mismatch errors
+Fixed Pandas indexing (KeyError issues)
 Standardized metadata storage format
-Added safe fallback handling for old cache files
-⚡ Performance Fixes
-Optimized embedding generation (one-time build)
-Added FAISS persistent storage
-Prevented re-embedding on every restart
-🤖 AI Agent Fixes
-Updated Groq model (removed deprecated models)
-Fixed API errors due to decommissioned LLMs
-Improved response structure for medicine comparison
+⚡ Performance Improvements
+One-time embedding generation
+Persistent FAISS index storage
+Cached dataset loading
+🤖 LLM Fixes
+Updated deprecated Groq models
+Fixed model decommission errors
+Improved response formatting
 🖥️ UI Fixes
-Streamlit port conflict resolution
-Stable backend/frontend separation
+Resolved Streamlit port conflicts
+Clean backend/frontend separation
 🔐 Security & GitHub Safety
 
-This repository follows safe publishing practices:
+This repository follows secure publishing practices:
 
-❌ NOT included in repo:
-.env (API keys protected)
-data/faiss.index (optional large file exclusion if needed)
-data/meta.pkl (can be regenerated)
-personal keys or secrets
-✅ Safe to include:
-Codebase
-Requirements
-Dataset loader (if public-safe)
-Model architecture
+❌ NOT included:
+.env (API keys)
+FAISS index files (faiss.index)
+pickle metadata (meta.pkl)
+any secrets or credentials
+✅ Included:
+Source code
+Architecture
+Dataset loader logic
+Documentation
 📁 Project Structure
 Pharma_Price_Compairer/
 │
 ├── app/
-│   └── main.py
-│
 ├── services/
-│   ├── ai_agent.py
-│   ├── vector_store.py
-│   └── data_loader.py
-│
 ├── dashboard/
-│   └── app.py
-│
-├── data/
-│   └── (FAISS index + metadata - optional)
-│
+├── utils/
+├── models/
+├── data/ (ignored in git)
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 🚧 Future Improvements
-🔬 Dosage-aware comparison engine
-💰 Price-per-mg normalization
-🏥 Drug safety scoring system
-📱 Mobile UI version
-☁️ Deployment (AWS / Render / HuggingFace Spaces) 
-
+Dosage-aware comparison engine
+Price-per-mg normalization
+Drug safety scoring system
+Mobile UI version
+Cloud deployment (Render / AWS / HF Spaces)
 📜 License
 
-MIT License
+MIT License (Project Code)
+
+Dataset: CC BY-NC-SA 4.0 (Kaggle dataset license applies)
 
 👨‍💻 Author
 
 Mehul Mukherjee
 
-⭐ If you like this project
-
-Give it a ⭐ on GitHub and contribute improvements!
-
-
----
-
+⭐ If you like this project, give it a star on GitHub.
